@@ -16,4 +16,5 @@ class Users{
     password = data['password'];
     phone = data['phone'];
   }
+
 }

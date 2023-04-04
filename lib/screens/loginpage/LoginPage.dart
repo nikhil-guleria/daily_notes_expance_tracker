@@ -1,3 +1,4 @@
+import 'package:daily_notes/screens/loginpage/LoginPageController.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ import '../../routes/app_pages.dart';
 import '../../utils/SizeConfig.dart';
 
 class LoginPage extends StatelessWidget{
+  LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +52,8 @@ return Stack(
                     fontWeight: FontWeight.w400, fontSize:  SizeConfig.blocksize_vertical*3.3,color:lbl_color),
               ),
               TextFormField(cursorColor: Colors.black,
-                  //controller: loginPageController.emailInputController,
+                  controller: loginController.emailInputController,
                   textInputAction: TextInputAction.next,
-                //  onChanged: (value){loginPageController.validateEmail(value);},
                   decoration:  InputDecoration(focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.black)),)
               ),
               SizedBox(
@@ -64,8 +65,7 @@ return Stack(
                     fontWeight: FontWeight.w400, fontSize: SizeConfig.blocksize_vertical*3.3,color:lbl_color),
               ),
               TextFormField(cursorColor: Colors.black,
-              //  onChanged: (value){loginPageController.validatePassword(value);},
-               // controller: loginPageController.passwordInputController,
+               controller: loginController.passwordInputController,
                 decoration:  InputDecoration(focusedBorder: UnderlineInputBorder(
                     borderSide: BorderSide(color: Colors.black)) ),),
               SizedBox(
@@ -79,6 +79,7 @@ return Stack(
                   padding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),/*maximumSize: Size(300,50)*/
                 ),
                   onPressed: () {
+                  loginController.loginValidation();
 
                   },
                   child: Text(lbl_login,
@@ -93,7 +94,8 @@ return Stack(
                   height: SizeConfig.blocksize_vertical*2
               ),
               Center(
-                child: InkWell(onTap: (){},
+                child: InkWell(onTap: (){
+                },
                     child: Text(
                       lbl_forgotten_password,
                       style: GoogleFonts.inter(

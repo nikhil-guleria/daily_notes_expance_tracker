@@ -36,7 +36,7 @@ class DailyNotesDatabase {
             'email STRING PRIMARY KEY,'
             'username STRING,'
             'password STRING,'
-            'phone STRING'
+            'phone TEXT'
             ')');
   }
 

@@ -1,3 +1,4 @@
+import 'package:daily_notes/screens/dashboard/DashBoard.dart';
 import 'package:get/get.dart';
 
 import '../screens/loginpage/LoginPage.dart';
@@ -16,6 +17,10 @@ class AppPages {
     GetPage(
       name: Routes.SIGNUPPAGE,
       page: () => SignUpPage(),
+    ),
+    GetPage(
+      name: Routes.DASHBOARD,
+      page: () => DashBoard(),
     ),
   ];
 
