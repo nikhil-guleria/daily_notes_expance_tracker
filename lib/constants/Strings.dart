@@ -20,7 +20,8 @@ const error_user_name = 'User name can not be empty';
 const error_phone_no = "Please enter phone no.";
 const error_password = 'Enter valid Password';
 const error_confirm_password = "Password should be same";
-const error_alert = 'Alert';
+const error_alert = 'Error';
+const success_alert= 'Success';
 const error_email = 'Please enter valid Email';
 const details_saved = 'Details Saved Successfully';
 

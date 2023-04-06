@@ -7,6 +7,7 @@ import '../../constants/Strings.dart';
 import '../../localdb/DailyNotesDatabase.dart';
 import '../../models/UsersData.dart';
 import '../../routes/app_pages.dart';
+import '../../utils/DialogBox.dart';
 import '../../utils/StorageConstant.dart';
 
 class LoginController extends GetxController {
@@ -21,14 +22,23 @@ class LoginController extends GetxController {
 
 
     if ( user.isEmpty) {
-      Get.defaultDialog(
+      Get.dialog(
+          DialogBox(title: error_alert,
+              middleText: error_email,
+              errorType: true,
+              onConfirm: () => Get.back(),
+              onCancel: ()=> Get.back(),
+              cancelBtn: false),
+          barrierDismissible: false
+      );
+      /*Get.defaultDialog(
         title: error_alert,
         middleText: error_email,
         textConfirm: btn_lbl_ok,
         onConfirm: (){
           Get.back();
         },
-      );
+      );*/
     } else {
       users.assignAll(user.map((data) => Users.fromMap(data)).toList());
     userData = users[0];
@@ -37,15 +47,25 @@ class LoginController extends GetxController {
         processLogin();
       }
       else {
+        Get.dialog(
+            DialogBox(title: error_alert,
+                middleText: error_password,
+                errorType: true,
+                onConfirm: () => Get.back(),
+                onCancel: ()=> Get.back(),
+                cancelBtn: false),
+            barrierDismissible: false
+        );
+
         //   showError
-        Get.defaultDialog(
+        /*Get.defaultDialog(
           title: error_alert,
           middleText: error_password,
           textConfirm: btn_lbl_ok,
           onConfirm: (){
             Get.back();
           },
-        );
+        );*/
       }
     }
   }

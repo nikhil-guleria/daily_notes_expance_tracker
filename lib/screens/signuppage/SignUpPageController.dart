@@ -1,4 +1,5 @@
 import 'package:daily_notes/utils/CommonUtils.dart';
+import 'package:daily_notes/utils/DialogBox.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:encrypt/encrypt.dart';
@@ -126,7 +127,16 @@ class SignUpController extends GetxController{
   }
   signUpUserLocal() {
     addSignUpDetails();
-    Get.defaultDialog(
+    Get.dialog(
+      DialogBox(title: success_alert,
+          middleText: details_saved,
+          errorType: false,
+          onConfirm: () => Get.close(2),
+          onCancel: ()=> Get.back(),
+          cancelBtn: false),
+      barrierDismissible: false
+    );
+    /*Get.defaultDialog(
         title: error_alert,
         middleText: details_saved,
         actions: [
@@ -137,7 +147,7 @@ class SignUpController extends GetxController{
               }
           )
         ],
-        barrierDismissible: false);
+        barrierDismissible: false);*/
   }
 
 }
