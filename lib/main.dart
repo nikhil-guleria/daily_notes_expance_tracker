@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'MyApp.dart';
 import 'localdb/DailyNotesDatabase.dart';
@@ -6,6 +7,7 @@ import 'localdb/DailyNotesDatabase.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await DailyNotesDatabase.initDb();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 

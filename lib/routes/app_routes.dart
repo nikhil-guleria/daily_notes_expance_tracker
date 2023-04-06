@@ -8,6 +8,7 @@ import 'app_pages.dart';
 class AppPages {
 
   static const INITIAL_ROUTES = Routes.LOGINPAGE;
+  static const INITIAL_DASHBOARD = Routes.DASHBOARD;
 
   static final routes = [
     GetPage(

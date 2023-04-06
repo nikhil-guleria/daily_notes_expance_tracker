@@ -2,10 +2,12 @@ import 'package:daily_notes/utils/CommonUtils.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import '../../constants/Strings.dart';
 import '../../localdb/DailyNotesDatabase.dart';
 import '../../models/UsersData.dart';
 import '../../routes/app_pages.dart';
+import '../../utils/StorageConstant.dart';
 
 class LoginController extends GetxController {
   TextEditingController emailInputController = TextEditingController();
@@ -16,10 +18,9 @@ class LoginController extends GetxController {
     List<Users> users = <Users>[];
     final List<Map<String, dynamic>> user = await DailyNotesDatabase.getUser(
         emailInputController.text);
-    users.assignAll(user.map((data) => Users.fromMap(data)).toList());
-    userData = users[0];
 
-    if ( userData.email != emailInputController.text) {
+
+    if ( user.isEmpty) {
       Get.defaultDialog(
         title: error_alert,
         middleText: error_email,
@@ -29,6 +30,8 @@ class LoginController extends GetxController {
         },
       );
     } else {
+      users.assignAll(user.map((data) => Users.fromMap(data)).toList());
+    userData = users[0];
     var password =  CommonUtils().decryptPassword(userData.password);
       if (password == passwordInputController.text) {
         processLogin();
@@ -49,10 +52,8 @@ class LoginController extends GetxController {
 
 
   void processLogin() {
-    /*// save email to storage
     final userDetail = GetStorage();
     userDetail.write(StorageConstant.USER_EMAIL, emailInputController.text);
-    // redirect user to dashboard*/
    Get.offNamed(Routes.DASHBOARD);
   }
 

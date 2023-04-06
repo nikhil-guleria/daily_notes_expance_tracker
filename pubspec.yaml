@@ -41,6 +41,7 @@ dependencies:
   sqflite:
   encrypt:
   base64:
+  get_storage:
 
 dev_dependencies:
   flutter_test:
