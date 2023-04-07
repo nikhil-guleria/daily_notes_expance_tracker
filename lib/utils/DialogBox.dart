@@ -6,13 +6,16 @@ import 'package:google_fonts/google_fonts.dart';
 class DialogBox extends StatelessWidget{
   final title;
   final middleText;
-  final errorType;
+  //final errorType;
   final onConfirm;
   final onCancel;
   final cancelBtn;
+  final icon;
+  final iconColor;
   DialogBox({ @required this.title, @required this.middleText,
-    @required this.errorType,@required this.onConfirm,
-    @required this.onCancel,@required this.cancelBtn});
+   @required this.onConfirm,
+    @required this.onCancel,@required this.cancelBtn,
+  @required this.icon, @required this.iconColor});
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -25,13 +28,9 @@ class DialogBox extends StatelessWidget{
             color: Colors.white),
           child: Column( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              errorType == true ?
              Center(child:
-             Icon(Icons.error_outline_rounded,color: Colors.red,
-                 size: SizeConfig.blocksize_vertical*7)) :
-              Center(child:
-              Icon(Icons.check,color: Colors.green,
-                  size: SizeConfig.blocksize_vertical*7)),
+             Icon(icon,color: iconColor,
+                 size: SizeConfig.blocksize_vertical*7)),
               Text(title , style: GoogleFonts.inter( color: Colors.black,
                   decoration: TextDecoration.none,
                   fontSize: SizeConfig.blocksize_vertical*3.3)),
@@ -44,10 +43,10 @@ class DialogBox extends StatelessWidget{
               cancelBtn == true ?
               Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  TextButton(onPressed: onCancel, child: Text('Cancel',
+                    style: TextStyle(fontSize: SizeConfig.blocksize_vertical*3) ,)),
                   TextButton(onPressed: onConfirm, child: Text('Ok',
                     style: TextStyle(fontSize: SizeConfig.blocksize_vertical*3) ,)),
-                  TextButton(onPressed: onCancel, child: Text('Cancel',
-                    style: TextStyle(fontSize: SizeConfig.blocksize_vertical*3) ,))
                 ],
               ):
 

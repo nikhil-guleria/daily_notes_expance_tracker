@@ -130,7 +130,8 @@ class SignUpController extends GetxController{
     Get.dialog(
       DialogBox(title: success_alert,
           middleText: details_saved,
-          errorType: false,
+         icon: Icons.check_box,
+          iconColor: Colors.green,
           onConfirm: () => Get.close(2),
           onCancel: ()=> Get.back(),
           cancelBtn: false),

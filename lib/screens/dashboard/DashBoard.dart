@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../constants/Colors.dart';
+import '../../constants/Strings.dart';
 import '../../routes/app_pages.dart';
 
 
@@ -44,19 +45,19 @@ class DashBoard extends StatelessWidget{
     items: const <BottomNavigationBarItem>[
     BottomNavigationBarItem(
     icon: Icon(Icons.local_activity),
-    label: 'Activity',
+    label: lbl_activity,
     ),
     BottomNavigationBarItem(
     icon: Icon(Icons.transfer_within_a_station),
-    label: 'Transaction',
+    label: lbl_transaction,
     ),
     BottomNavigationBarItem(
     icon: Icon(Icons.report),
-    label: 'Report',
+    label: lbl_report,
     ),
       BottomNavigationBarItem(
         icon: Icon(Icons.settings),
-        label: 'Settings',
+        label: lbl_settings,
       ),
     ],
       currentIndex: dashBoardController.currentIndex.value,

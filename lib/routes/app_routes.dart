@@ -1,5 +1,6 @@
 import 'package:daily_notes/screens/activity/Activity.dart';
 import 'package:daily_notes/screens/dashboard/DashBoard.dart';
+import 'package:daily_notes/screens/profile_settings/ProfileSettings.dart';
 import 'package:daily_notes/screens/report/Report.dart';
 import 'package:daily_notes/screens/settings/Settings.dart';
 import 'package:daily_notes/screens/transaction/Transaction.dart';
@@ -42,6 +43,10 @@ class AppPages {
     GetPage(
       name: Routes.SETTINGS,
       page: () => Settings(),
+    ),
+    GetPage(
+      name: Routes.PROFILESETTINGS,
+      page: () => ProfileSettings(),
     ),
   ];
 

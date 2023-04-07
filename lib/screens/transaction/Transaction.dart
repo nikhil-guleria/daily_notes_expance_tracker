@@ -28,7 +28,7 @@ class Transaction extends StatelessWidget {
           )),
       body: Center(
         child: Container(
-          color: Colors.pink,
+
 
         ),
       ),

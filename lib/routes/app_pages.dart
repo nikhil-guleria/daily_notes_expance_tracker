@@ -6,4 +6,5 @@ abstract class Routes {
   static const TRANSACTION = '/transaction';
   static const REPORT = '/report';
   static const SETTINGS = '/settings';
+  static const PROFILESETTINGS = '/profilesettings';
 }

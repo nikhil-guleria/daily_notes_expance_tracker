@@ -14,6 +14,8 @@ class LoginController extends GetxController {
   TextEditingController emailInputController = TextEditingController();
   TextEditingController passwordInputController = TextEditingController();
   late final Users userData;
+  var ctime;
+
 
   getUserData() async {
     List<Users> users = <Users>[];
@@ -25,7 +27,8 @@ class LoginController extends GetxController {
       Get.dialog(
           DialogBox(title: error_alert,
               middleText: error_email,
-              errorType: true,
+             icon: Icons.error,
+              iconColor: Colors.red,
               onConfirm: () => Get.back(),
               onCancel: ()=> Get.back(),
               cancelBtn: false),
@@ -50,7 +53,8 @@ class LoginController extends GetxController {
         Get.dialog(
             DialogBox(title: error_alert,
                 middleText: error_password,
-                errorType: true,
+               icon: Icons.error,
+                iconColor: Colors.red,
                 onConfirm: () => Get.back(),
                 onCancel: ()=> Get.back(),
                 cancelBtn: false),
@@ -84,4 +88,21 @@ class LoginController extends GetxController {
   /*getUserDetails(UserData userData){
     emailInputController.text = userData.result!.email!;
   }*/
+onWillPop(BuildContext context){
+
+  DateTime now = DateTime.now();
+  if (ctime == null || now.difference(ctime) > Duration(seconds: 2)) {
+    //add duration of press gap
+    ctime = now;
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Press Back Button Again to Exit'))
+    ); //scaffold message, you can show Toast message too.
+    return Future.value(false);
+  }
+
+  return Future.value(true);
+}
+
+
+
 }

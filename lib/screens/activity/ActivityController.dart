@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class ActivityController extends GetxController {
+
+
+
   currentDate(){
     DateTime date = DateTime.now();
    var suffix = 'th';
