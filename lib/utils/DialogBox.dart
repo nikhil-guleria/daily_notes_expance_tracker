@@ -34,12 +34,12 @@ class DialogBox extends StatelessWidget{
                   size: SizeConfig.blocksize_vertical*7)),
               Text(title , style: GoogleFonts.inter( color: Colors.black,
                   decoration: TextDecoration.none,
-                  fontWeight: FontWeight.w700, fontSize: SizeConfig.blocksize_vertical*4.5)),
+                  fontSize: SizeConfig.blocksize_vertical*3.3)),
               Padding(
-                padding: const EdgeInsets.only(left: 10,right: 10),
+                padding: const EdgeInsets.only(left: 15,right: 15),
                 child: Text(middleText , style: GoogleFonts.inter( color: Colors.grey,
                     decoration: TextDecoration.none,
-                    fontWeight: FontWeight.w400, fontSize: SizeConfig.blocksize_vertical*4)),
+                     fontSize: SizeConfig.blocksize_vertical*2.2)),
               ),
               cancelBtn == true ?
               Row( mainAxisAlignment: MainAxisAlignment.spaceEvenly,

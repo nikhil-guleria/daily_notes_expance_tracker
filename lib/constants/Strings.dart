@@ -11,8 +11,12 @@ const lbl_enter_username ='Enter Username';
 const lbl_create_pasword = 'Create Password';
 const lbl_confirm_password ='Confirm Password';
 const lbl_enter_phone_no = 'Enter Phone No.';
-const btn_lbl_sign_up ='Sign Up';
-const btn_lbl_ok ='Ok';
+const sign_up ='Sign Up';
+const ok ='Ok';
+const lbl_activity = 'Activity';
+const lbl_transaction = 'Transaction';
+const lbl_report = 'Report';
+const lbl_settings = "Settings";
 
 const error_empty_email = "Email can not be empty";
 const error_invalid_email = "Invalid Email Address";

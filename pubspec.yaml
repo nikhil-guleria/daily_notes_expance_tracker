@@ -42,6 +42,7 @@ dependencies:
   encrypt:
   base64:
   get_storage:
+  intl:
 
 dev_dependencies:
   flutter_test:

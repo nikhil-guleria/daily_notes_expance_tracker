@@ -7,24 +7,24 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 
 import '../../routes/app_pages.dart';
+import '../settings/SettingsController.dart';
 
 class DashBoardController extends GetxController {
   var currentIndex = 0.obs;
   static DashBoardController get to => Get.find();
   final pages = <String>[Routes.ACTIVITY, Routes.TRANSACTION, Routes.REPORT, Routes.SETTINGS];
 
-  /* currentIndex: _selectedIndex, //New
-  onTap: _onItemTapped,         //New
-  )*/
   void changePage(int index) {
     currentIndex.value = index;
+
     Get.toNamed(pages[index], id: 1);
   }
   Route? onGenerateRoute(RouteSettings settings) {
     if (settings.name == Routes.ACTIVITY) {
       return GetPageRoute(
         settings: settings,
-        page: () => Activity(),
+        page: () =>Activity(),
+        transitionDuration: Duration(milliseconds: 10)
       );
     }
 
@@ -32,6 +32,7 @@ class DashBoardController extends GetxController {
       return GetPageRoute(
         settings: settings,
         page: () => Transaction(),
+          transitionDuration: Duration(milliseconds: 10)
       );
     }
 
@@ -39,12 +40,14 @@ class DashBoardController extends GetxController {
       return GetPageRoute(
         settings: settings,
         page: () => Report(),
+          transitionDuration: Duration(milliseconds: 10)
       );
     }
     if (settings.name == Routes.SETTINGS) {
       return GetPageRoute(
         settings: settings,
         page: () => Settings(),
+          transitionDuration: Duration(milliseconds: 10)
       );
     }
 

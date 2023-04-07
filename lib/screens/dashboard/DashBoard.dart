@@ -23,32 +23,22 @@ class DashBoard extends StatelessWidget{
        Scaffold(
          resizeToAvoidBottomInset: false,
          backgroundColor: Colors.transparent,
-         appBar: AppBar(
-           systemOverlayStyle: SystemUiOverlayStyle(
-             statusBarColor: Colors.transparent,
-             statusBarIconBrightness: Brightness.dark),
-    elevation: 0.0,
-           backgroundColor: Colors.transparent,
-           centerTitle: true,
-           title: Text('title',style: TextStyle(color: Colors.black,
-               fontSize: SizeConfig.blocksize_vertical*4
-           ),
-         )),
            body: Navigator(
              key: Get.nestedKey(1),
              initialRoute: Routes.ACTIVITY,
              onGenerateRoute: dashBoardController.onGenerateRoute,
+
            ),
 
     bottomNavigationBar: Obx (() =>
     BottomNavigationBar(
       type: BottomNavigationBarType.shifting,
-      selectedFontSize: 20,
-      selectedIconTheme: IconThemeData(color:selected_color, size: 40),
-      selectedItemColor: selected_color,
+      selectedFontSize: 15,
+      selectedIconTheme: IconThemeData(color:unselected_color, size: 20),
+      selectedItemColor: unselected_color,
       selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
       unselectedIconTheme: IconThemeData(
-        color: unselected_color,
+        color: Colors.grey,
       ),
       unselectedItemColor: unselected_color,
     items: const <BottomNavigationBarItem>[
@@ -71,6 +61,7 @@ class DashBoard extends StatelessWidget{
     ],
       currentIndex: dashBoardController.currentIndex.value,
       onTap: dashBoardController.changePage,
+
     ),
       )
 
