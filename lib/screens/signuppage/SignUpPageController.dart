@@ -102,7 +102,7 @@ class SignUpController extends GetxController{
     signupDetails.name = usernameInputController.text;
     signupDetails.password = CommonUtils().encryptPassword(confirmPasswordInputController.text);
     signupDetails.phone = phoneInputController.text ;
-    signupDetails.image= null;
+    signupDetails.image= "";
     return DailyNotesDatabase.saveUser(signupDetails);
   }
   visible(){

@@ -19,7 +19,7 @@ class DailyNotesDatabase {
     try {
       String path = '${await getDatabasesPath()}dailynotes.db';
       debugPrint('in database path');
-      _db = await openDatabase(path, version: 2, onCreate: _onCreate, onUpgrade: _onUpgrade);
+      _db = await openDatabase(path, version: 3, onCreate: _onCreate, onUpgrade: _onUpgrade);
 
     } catch (e) {
     }
@@ -52,10 +52,10 @@ class DailyNotesDatabase {
     return await _db!.insert('login', detail!.toMap());
   }*/
 
- /* static  Future<int> updateEvent(MyEvent event) async {
-    return await _db!.update(tableEvents, event.toMap(), where: '"id" = ?',
-        whereArgs: [event.id]);
-  }*/
+  static  Future<int> updateUsersDetails(Users userData) async {
+    return await _db!.update(tableUsers, userData.toMap(), where: '"email" = ?',
+        whereArgs: [userData.email]);
+  }
 
 
   static void _onUpgrade(Database db, int oldVersion, int newVersion) {

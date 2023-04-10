@@ -53,7 +53,8 @@ class Settings extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(border: Border(top:BorderSide(width: 0.1) )),
-                child: ListTile( contentPadding: EdgeInsets.only(left: 5),
+                child: ListTile(
+                    contentPadding: EdgeInsets.only(left: 5),
                     minLeadingWidth: SizeConfig.blocksize_horizontal*0.5,
                     leading: const Icon(Icons.backup,color: Colors.black,),
                     trailing: const Icon(Icons.arrow_forward_ios_rounded,color: Colors.black,),
@@ -63,8 +64,10 @@ class Settings extends StatelessWidget {
                         style: TextStyle(color: Colors.grey,fontSize: SizeConfig.blocksize_vertical*2))),
               ),
               Container(
-                decoration: BoxDecoration(border: Border(top:BorderSide(width: 0.1) )),
-                child: ListTile( contentPadding: EdgeInsets.only(left: 5),
+                decoration: BoxDecoration(
+                    border: Border(top:BorderSide(width: 0.1) )),
+                child: ListTile( onTap: (){Get.toNamed(Routes.CHANGEPASSWORD);},
+                    contentPadding: EdgeInsets.only(left: 5),
                     minLeadingWidth: SizeConfig.blocksize_horizontal*0.5,
                     leading: const Icon(Icons.password,color: Colors.black,),
                     trailing: const Icon(Icons.arrow_forward_ios_rounded,color: Colors.black,),

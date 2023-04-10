@@ -6,6 +6,7 @@ import 'package:daily_notes/screens/settings/Settings.dart';
 import 'package:daily_notes/screens/transaction/Transaction.dart';
 import 'package:get/get.dart';
 
+import '../screens/change_password/ChangePassword.dart';
 import '../screens/loginpage/LoginPage.dart';
 import '../screens/signuppage/SignUpPage.dart';
 import 'app_pages.dart';
@@ -47,6 +48,10 @@ class AppPages {
     GetPage(
       name: Routes.PROFILESETTINGS,
       page: () => ProfileSettings(),
+    ),
+    GetPage(
+      name: Routes.CHANGEPASSWORD,
+      page: () => ChangePassword(),
     ),
   ];
 

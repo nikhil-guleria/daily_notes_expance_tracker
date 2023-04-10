@@ -19,6 +19,7 @@ const sign_up ='Sign Up';
 const ok ='Ok';
 const save = 'Save';
 const login = 'LOGIN';
+const update = 'Update';
 
 ///// navigation screens
 const lbl_activity = 'Activity';
@@ -65,6 +66,17 @@ const profile_name = 'Name';
 const profile_phone_no = 'Phone No.';
 const profile_email = 'Email';
 const profile_image = 'Image';
+const profile_image_picker_title = 'Choose Image';
+const image_picker_gallery = 'From Gallery';
+const image_picker_camera = 'From Camera';
+const update_dialog_title = 'Success';
+const update_dialog_midd_txt = 'Your Data is Successfully Updated';
+
+///// change password screen
+const change_password_title = "Change Password";
+const old_password = 'Old Password';
+const new_password = 'New Password';
+const confirm_password = 'Confirm Password';
 
 
 

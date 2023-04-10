@@ -7,4 +7,5 @@ abstract class Routes {
   static const REPORT = '/report';
   static const SETTINGS = '/settings';
   static const PROFILESETTINGS = '/profilesettings';
+  static const CHANGEPASSWORD = '/changepassword';
 }
