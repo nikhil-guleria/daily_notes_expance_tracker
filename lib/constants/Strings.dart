@@ -64,6 +64,7 @@ const settings_logout_desc = 'Logout your account';
 const profile_name = 'Name';
 const profile_phone_no = 'Phone No.';
 const profile_email = 'Email';
+const profile_image = 'Image';
 
 
 

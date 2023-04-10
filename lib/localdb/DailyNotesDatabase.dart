@@ -19,7 +19,7 @@ class DailyNotesDatabase {
     try {
       String path = '${await getDatabasesPath()}dailynotes.db';
       debugPrint('in database path');
-      _db = await openDatabase(path, version: 1, onCreate: _onCreate, /*onUpgrade: _onUpgrade*/);
+      _db = await openDatabase(path, version: 2, onCreate: _onCreate, onUpgrade: _onUpgrade);
 
     } catch (e) {
     }
@@ -58,10 +58,10 @@ class DailyNotesDatabase {
   }*/
 
 
-  /*static void _onUpgrade(Database db, int oldVersion, int newVersion) {
+  static void _onUpgrade(Database db, int oldVersion, int newVersion) {
     if (oldVersion < newVersion) {
-      db.execute("ALTER TABLE $tableEvents ADD COLUMN email TEXT;");
-    }}*/
+      db.execute("ALTER TABLE $tableUsers ADD COLUMN image STRING;");
+    }}
 
   /*static Future<List<Map<String, dynamic>>> getAllNotes() async {
     return await _db!.query(tableEvents);
