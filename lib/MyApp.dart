@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       enableLog: true,
-      initialRoute:getInitialRoutes(),
+     initialRoute:getInitialRoutes(),
       getPages: AppPages.routes,
       themeMode: ThemeMode.system,
     );

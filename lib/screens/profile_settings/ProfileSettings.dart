@@ -212,7 +212,7 @@ class ProfileSettings extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Colors.black,
                         padding: EdgeInsets.symmetric(
                             horizontal: 40,
                             vertical: 10), /*maximumSize: Size(300,50)*/

@@ -13,7 +13,7 @@ import '../../utils/StorageConstant.dart';
 class LoginController extends GetxController {
   TextEditingController emailInputController = TextEditingController();
   TextEditingController passwordInputController = TextEditingController();
-  late final Users userData;
+  late  Users userData;
   var ctime;
 
 

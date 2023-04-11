@@ -20,6 +20,7 @@ const ok ='Ok';
 const save = 'Save';
 const login = 'LOGIN';
 const update = 'Update';
+const confirm = 'Confirm';
 
 ///// navigation screens
 const lbl_activity = 'Activity';

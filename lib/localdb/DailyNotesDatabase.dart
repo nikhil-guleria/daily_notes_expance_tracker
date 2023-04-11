@@ -56,6 +56,10 @@ class DailyNotesDatabase {
     return await _db!.update(tableUsers, userData.toMap(), where: '"email" = ?',
         whereArgs: [userData.email]);
   }
+  static  Future<int> updatePassword(String email, Map<String, dynamic> map) async {
+    return await _db!.update(tableUsers,map,  where: '"email" = ?',
+        whereArgs: [email]);
+  }
 
 
   static void _onUpgrade(Database db, int oldVersion, int newVersion) {
@@ -73,6 +77,11 @@ class DailyNotesDatabase {
   static Future<List<Map<String, dynamic>>> getUser(String email) async {
     return
       await _db!.query("Users",where:'"email" = ?',whereArgs: [email]);
+  }
+
+  static Future<List<Map<String, dynamic>>> getUserPassword(String email) async {
+    return
+      await _db!.query("Users",columns: ["password"],where:'"email" = ?',whereArgs: [email]);
   }
  /* static Future<List<Map<String, dynamic>>> getNotes(String email) async {
     return
