@@ -78,7 +78,8 @@ class Settings extends StatelessWidget {
               ),
               Container(
                 decoration: BoxDecoration(border: Border(top:BorderSide(width: 0.1) )),
-                child: ListTile( contentPadding: EdgeInsets.only(left: 5),
+                child: ListTile( onTap: (){settingsController.deleteAccount();},
+                    contentPadding: EdgeInsets.only(left: 5),
                     minLeadingWidth: SizeConfig.blocksize_horizontal*0.5,
                     leading: const Icon(Icons.delete,color: Colors.black,),
                     trailing: const Icon(Icons.arrow_forward_ios_rounded,color: Colors.black,),

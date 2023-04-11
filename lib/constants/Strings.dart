@@ -41,6 +41,8 @@ const error_email = 'Please enter valid Email';
 const details_saved = 'Details Saved Successfully';
 const alert_logout = 'Are you really want to logout ?';
 const alert_logout_lbl = 'LOGOUT !!';
+const alert_delete = 'Delete !!';
+const alert_delete_text =  'Are you really want to Delete Account ?';
 
 
 ///// activity screen

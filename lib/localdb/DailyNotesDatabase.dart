@@ -19,7 +19,7 @@ class DailyNotesDatabase {
     try {
       String path = '${await getDatabasesPath()}dailynotes.db';
       debugPrint('in database path');
-      _db = await openDatabase(path, version: 3, onCreate: _onCreate, onUpgrade: _onUpgrade);
+      _db = await openDatabase(path, version: 1, onCreate: _onCreate, onUpgrade: _onUpgrade);
 
     } catch (e) {
     }
@@ -36,7 +36,8 @@ class DailyNotesDatabase {
             'email STRING PRIMARY KEY,'
             'username STRING,'
             'password STRING,'
-            'phone TEXT'
+            'phone TEXT,'
+            'image STRING'
             ')');
   }
 
@@ -88,9 +89,9 @@ class DailyNotesDatabase {
       await _db!.query(tableEvents,where:'"email" = ?',whereArgs: [email]);
   }*/
 
-  /*Future<int> deleteNote(MyEvent note) async {
-    return await _db!.delete(tableEvents, where: 'id = ?', whereArgs: [note.id]);
-  }*/
+ static Future<int> deleteUser(String  email) async {
+    return await _db!.delete(tableUsers, where: '"email" = ?', whereArgs: [email]);
+  }
  /* static Future deleteEvent(int id) async {
     return await _db!.delete(tableEvents, where: '"id" = ?', whereArgs: [id]);
   }*/
