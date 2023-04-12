@@ -44,6 +44,7 @@ class SettingsController extends GetxController {
   processDelete(){
     var storage = GetStorage();
      DailyNotesDatabase.deleteUser( storage.read(StorageConstant.USER_EMAIL));
+     DailyNotesDatabase.deleteActivity(storage.read(StorageConstant.USER_EMAIL));
     storage.remove(StorageConstant.USER_EMAIL);
     Get.offAllNamed(Routes.LOGINPAGE);
   }

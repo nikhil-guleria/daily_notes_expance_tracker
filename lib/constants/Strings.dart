@@ -34,6 +34,7 @@ const error_invalid_email = "Invalid Email Address";
 const error_user_name = 'User name can not be empty';
 const error_phone_no = "Please enter phone no.";
 const error_password = 'Enter valid Password';
+const error_empty_password = 'Password Cannot be Empty';
 const error_confirm_password = "Password should be same";
 const error_alert = 'Error';
 const success_alert= 'Success';
@@ -80,6 +81,9 @@ const change_password_title = "Change Password";
 const old_password = 'Old Password';
 const new_password = 'New Password';
 const confirm_password = 'Confirm Password';
+
+//// transaction screen
+const transaction_earnings = 'Earnings :- ';
 
 
 

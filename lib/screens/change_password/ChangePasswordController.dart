@@ -40,7 +40,7 @@ class ChangePasswordController extends GetxController{
       oldPassword.value = "";
       isValid.value = true;
     }
-    else {oldPassword.value ='Password Cannot be Empty';
+    else {oldPassword.value =error_empty_password;
     isValid.value = false;}
     return isValid.value;
   }

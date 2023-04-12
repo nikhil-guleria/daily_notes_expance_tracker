@@ -26,10 +26,33 @@ class Transaction extends StatelessWidget {
               fontSize: SizeConfig.blocksize_vertical*4
           ),
           )),
-      body: Center(
-        child: Container(
+      body: Container(height: Get.height,
+        width: Get.width,
+        padding: EdgeInsets.only(top: SizeConfig.blocksize_vertical*1,
+            bottom: MediaQuery.of(context).viewInsets.bottom + SizeConfig.blocksize_vertical*1,
+            left: SizeConfig.blocksize_horizontal*3,
+            right: SizeConfig.blocksize_horizontal*3),
+        child: SingleChildScrollView(
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              RichText(
+                  text: TextSpan(
+                      text: activity_date,
+                      style: TextStyle(color: Colors.blue,
+                          fontSize: SizeConfig.blocksize_vertical*3.5),
+                      children: [
+                        TextSpan(
+                            text: '${transactionController.currentDate()}',
+                            style: TextStyle(color: Colors.grey,fontSize: SizeConfig.blocksize_vertical*2.8)
+                        )])),
+              SizedBox(
+                height: SizeConfig.blocksize_vertical * 2
+              ),
+              Text(transaction_earnings,style: TextStyle(color: Colors.blue,
+                  fontSize: SizeConfig.blocksize_vertical*3.5)),
 
-
+            ],
+          ),
         ),
       ),
     );

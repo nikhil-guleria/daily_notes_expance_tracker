@@ -51,7 +51,7 @@ class Activity extends StatelessWidget {
                   style: TextStyle(color: Colors.grey,fontSize: SizeConfig.blocksize_vertical*2.8)
                 )])),
               SizedBox(
-                height: SizeConfig.blocksize_vertical * 5,
+                height: SizeConfig.blocksize_vertical * 3,
               ),
               Text(activity_today,style: TextStyle(color: Colors.blue,
                   fontSize: SizeConfig.blocksize_vertical*3.5)),
@@ -65,7 +65,12 @@ class Activity extends StatelessWidget {
                   borderRadius: new BorderRadius.circular(10.0),
                     border: Border.all(color: Colors.grey)
                 ),*/
-                child: TextField( cursorColor: Colors.black,
+                child: TextField( controller: activityController.activityInputController,
+                    textInputAction: TextInputAction.next,
+                    onChanged: (value) {
+                      activityController.emptyValidator(value);
+                    },
+                    cursorColor: Colors.black,
                   textAlignVertical: TextAlignVertical.top,
                   keyboardType: TextInputType.multiline,
                   maxLines: null,
@@ -80,15 +85,27 @@ class Activity extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10.0),
                     ),)
                 )),
+              Obx(() => Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Text(
+                  '${activityController.emptyError.value}',
+                  style: TextStyle(color: Colors.red),
+                ),
+              )),
               SizedBox(
-                height: SizeConfig.blocksize_vertical * 6,
+                height: SizeConfig.blocksize_vertical * 3,
               ),
               Text(activity_note,style: TextStyle(color: Colors.blue,
                   fontSize: SizeConfig.blocksize_vertical*3.5)),
               SizedBox(
                 height: SizeConfig.blocksize_vertical * 2,
               ),
-              TextField( cursorColor: Colors.black,
+              TextField( controller: activityController.noteInputController,
+                textInputAction: TextInputAction.done,
+                onChanged: (value) {
+                  activityController.emptyValidator(value);
+                },
+                cursorColor: Colors.black,
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.black),
@@ -100,8 +117,15 @@ class Activity extends StatelessWidget {
                   ),
                 ),
               ),
+              Obx(() => Padding(
+                padding: const EdgeInsets.all(3.0),
+                child: Text(
+                  '${activityController.emptyError.value}',
+                  style: TextStyle(color: Colors.red),
+                ),
+              )),
               SizedBox(
-                height: SizeConfig.blocksize_vertical * 3,
+                height: SizeConfig.blocksize_vertical * 2,
               ),
               Row( mainAxisAlignment: MainAxisAlignment.end,
                 children: [ElevatedButton(
@@ -109,12 +133,13 @@ class Activity extends StatelessWidget {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
                   ),
-                  backgroundColor: Colors.blue,
+                  backgroundColor: Colors.black,
                   padding: EdgeInsets.symmetric(
                       horizontal: 40,
                       vertical: 10), /*maximumSize: Size(300,50)*/
                 ),
                 onPressed: () {
+                  activityController.saveValidation();
                 },
                 child: Text(save,
                     style: GoogleFonts.inter(

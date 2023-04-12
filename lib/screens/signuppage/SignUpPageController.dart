@@ -61,7 +61,7 @@ class SignUpController extends GetxController{
     return isValid.value;
   }
   validatePhoneNo(String value){
-    if(value.isEmpty || value.length<=9){
+    if(value.isEmpty ||  value.length != 10 ){
       errorPhone.value = error_phone_no;
       isValid.value = false;
     }

@@ -3,11 +3,13 @@ import 'dart:core';
 import 'package:flutter/widgets.dart';
 import 'package:sqflite/sqflite.dart';
 
+import '../models/UserActivity.dart';
 import '../models/UsersData.dart';
 class DailyNotesDatabase {
   static Database? _db;
   //static const tableEvents = 'Events';
   static const tableUsers = 'Users';
+  static const userActivity = 'Activity';
 
 
   static Future<void> initDb() async {
@@ -26,11 +28,11 @@ class DailyNotesDatabase {
   }
   static void _onCreate
       (Database db, int version) async {
-    /*await db.execute(
-      'CREATE TABLE $tableEvents('
-          'id INTEGER PRIMARY KEY AUTOINCREMENT, '
-          'title STRING, date STRING,image STRING,time STRING,email TEXT)',
-    );*/
+    await db.execute(
+      'CREATE TABLE $userActivity('
+          'email STRING PRIMARY KEY,'
+          'activity STRING, note STRING, date STRING)',
+    );
     await db.execute(
         'CREATE TABLE $tableUsers('
             'email STRING PRIMARY KEY,'
@@ -44,6 +46,10 @@ class DailyNotesDatabase {
   /*static Future<int> insertNote(MyEvent? note) async {
     return await _db!.insert(tableEvents, note!.toMap());
   }*/
+  static saveActivity(Activity? notes) async {
+    return await _db!.insert(userActivity, notes!.toMap());
+  }
+
 
   static saveUser(Users? detail) async {
     return await _db!.insert(tableUsers, detail!.toMap());
@@ -91,6 +97,9 @@ class DailyNotesDatabase {
 
  static Future<int> deleteUser(String  email) async {
     return await _db!.delete(tableUsers, where: '"email" = ?', whereArgs: [email]);
+  }
+  static Future<int> deleteActivity(String  email) async {
+    return await _db!.delete(userActivity, where: '"email" = ?', whereArgs: [email]);
   }
  /* static Future deleteEvent(int id) async {
     return await _db!.delete(tableEvents, where: '"id" = ?', whereArgs: [id]);
