@@ -21,6 +21,7 @@ const save = 'Save';
 const login = 'LOGIN';
 const update = 'Update';
 const confirm = 'Confirm';
+const add = 'ADD';
 
 ///// navigation screens
 const lbl_activity = 'Activity';
@@ -83,7 +84,7 @@ const new_password = 'New Password';
 const confirm_password = 'Confirm Password';
 
 //// transaction screen
-const transaction_earnings = 'Earnings :- ';
+const transaction_earnings = 'Earnings ';
 
 
 

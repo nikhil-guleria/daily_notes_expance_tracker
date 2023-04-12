@@ -10,6 +10,7 @@ class DailyNotesDatabase {
   //static const tableEvents = 'Events';
   static const tableUsers = 'Users';
   static const userActivity = 'Activity';
+ // static const transactionEarnings = 'Earnings';
 
 
   static Future<void> initDb() async {
@@ -33,6 +34,12 @@ class DailyNotesDatabase {
           'email STRING PRIMARY KEY,'
           'activity STRING, note STRING, date STRING)',
     );
+   /* await db.execute(
+      'CREATE TABLE $transactionEarnings('
+           'id INTEGER PRIMARY KEY AUTOINCREMENT'
+          'email STRING,'
+          'source STRING, ammount STRING, date STRING)',
+    );*/
     await db.execute(
         'CREATE TABLE $tableUsers('
             'email STRING PRIMARY KEY,'
@@ -84,6 +91,10 @@ class DailyNotesDatabase {
   static Future<List<Map<String, dynamic>>> getUser(String email) async {
     return
       await _db!.query("Users",where:'"email" = ?',whereArgs: [email]);
+  }
+  static Future<List<Map<String, dynamic>>> getActivity(String email) async {
+    return
+      await _db!.query("Activity",where:'"email" = ?',whereArgs: [email]);
   }
 
   static Future<List<Map<String, dynamic>>> getUserPassword(String email) async {
