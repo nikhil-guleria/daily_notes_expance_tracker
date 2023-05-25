@@ -216,7 +216,7 @@ class SignUpPage extends StatelessWidget {
                         onPressed: () {
                           signUpController.signUpValidation();
                         },
-                        child: Text(btn_lbl_sign_up,
+                        child: Text(sign_up,
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w400,
                               fontSize: SizeConfig.blocksize_vertical * 2,

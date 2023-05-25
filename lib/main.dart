@@ -1,13 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'MyApp.dart';
 import 'localdb/DailyNotesDatabase.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  // splash screen
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+// initialize DB
   await DailyNotesDatabase.initDb();
+
+  // initialize Get storage
+  await GetStorage.init();
+   // await initialization(null);
+
+
+
   runApp(const MyApp());
+ FlutterNativeSplash.remove();
 }
+
+/*Future initialization(BuildContext? context) async {
+  await Future.delayed(Duration(seconds: 2));
+}*/
 
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});

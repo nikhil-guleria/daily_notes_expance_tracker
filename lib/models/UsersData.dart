@@ -3,17 +3,21 @@ class Users{
   String? name;
   String? phone;
   String? password;
-  Users({ this.email, this.name, this.password,this.phone});
+  String? image ;
+  Users({ this.email, this.name, this.password,this.phone,this.image});
   Map<String, dynamic> toMap() {
     return {'email': email,
       'username': name,
       'password': password,
-      'phone' : phone};
+      'phone' : phone,
+      'image': image };
   }
   Users.fromMap(Map<String, dynamic> data) {
     email = data['email'];
     name = data['username'];
     password = data['password'];
     phone = data['phone'];
+    image = data['image'];
   }
+
 }

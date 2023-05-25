@@ -1,3 +1,5 @@
+import 'package:daily_notes/utils/CommonUtils.dart';
+import 'package:daily_notes/utils/DialogBox.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:encrypt/encrypt.dart';
@@ -59,7 +61,7 @@ class SignUpController extends GetxController{
     return isValid.value;
   }
   validatePhoneNo(String value){
-    if(value.isEmpty || value.length<=9){
+    if(value.isEmpty ||  value.length != 10 ){
       errorPhone.value = error_phone_no;
       isValid.value = false;
     }
@@ -98,8 +100,9 @@ class SignUpController extends GetxController{
     Users signupDetails = Users();
     signupDetails.email = emailInputController.text;
     signupDetails.name = usernameInputController.text;
-    signupDetails.password = encryptPassword(confirmPasswordInputController.text);
-    signupDetails.phone = phoneInputController.text;
+    signupDetails.password = CommonUtils().encryptPassword(confirmPasswordInputController.text);
+    signupDetails.phone = phoneInputController.text ;
+    signupDetails.image= "";
     return DailyNotesDatabase.saveUser(signupDetails);
   }
   visible(){
@@ -125,7 +128,17 @@ class SignUpController extends GetxController{
   }
   signUpUserLocal() {
     addSignUpDetails();
-    Get.defaultDialog(
+    Get.dialog(
+      DialogBox(title: success_alert,
+          middleText: details_saved,
+         icon: Icons.check_box,
+          iconColor: Colors.green,
+          onConfirm: () => Get.close(2),
+          onCancel: ()=> Get.back(),
+          cancelBtn: false),
+      barrierDismissible: false
+    );
+    /*Get.defaultDialog(
         title: error_alert,
         middleText: details_saved,
         actions: [
@@ -136,36 +149,7 @@ class SignUpController extends GetxController{
               }
           )
         ],
-        barrierDismissible: false);
-  }
-  encryptPassword(plainText) {
-    final key = "This 32 char key have 256 bits..";
-    Encrypted encrypted = encryptWithAES(key, plainText);
-    String encryptedBase64 = encrypted.base64;
-    return encryptedBase64;
-
-  }
-
-  Encrypted encryptWithAES(String key, String plainText) {
-    final cipherKey = encrypt.Key.fromUtf8(key);
-    final encryptService = Encrypter(AES(cipherKey, mode: AESMode.cbc));
-    final initVector = IV.fromUtf8(key.substring(0, 16));
-    Encrypted encryptedData = encryptService.encrypt(plainText, iv: initVector);
-    return encryptedData;
-  }
-  decryptPassword(){
-    var encryptedBase64= "J5CUkv9HY+cHQbiQJtxuhQ==";
-   var  encrypted =  base64.decode(encryptedBase64);
-    final key = "This 32 char key have 256 bits..";
-    String decryptedText = decryptWithAES(key, encrypted);
-    return decryptedText;
-  }
-  String decryptWithAES(String key, Encrypted encryptedData) {
-    final cipherKey = encrypt.Key.fromUtf8(key);
-    final encryptService = Encrypter(AES(cipherKey, mode: AESMode.cbc)); //Using AES CBC encryption
-    final initVector = IV.fromUtf8(key.substring(0, 16)); //Here the IV is generated from key. This is for example only. Use some other text or random data as IV for better security.
-
-    return encryptService.decrypt(encryptedData, iv: initVector);
+        barrierDismissible: false);*/
   }
 
 }
