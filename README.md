@@ -1,16 +1,10 @@
 # daily_notes
 
-A new Flutter project.
+Daily notes and expense tracker is an app written in Dart Flutter.
+It can help you in various ways including basic functionality. 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# It includes : 
+ - A very beautifull and organized project basic structure with GetX state management.
+ - Includes routing with binding.
+ - A detailed use of local database with sqflite
+ - All the Files are organized to maintain MVVM architecture principle
